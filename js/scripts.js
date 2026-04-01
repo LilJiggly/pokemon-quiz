@@ -110,8 +110,8 @@ const testQuestionMC = {
 async function loadData() {
   try {
     const [pokemonRes, abilitiesRes] = await Promise.all([
-      fetch("/data/pokemon.json"),
-      fetch("/data/abilities.json"),
+      fetch("./data/pokemon.json"),
+      fetch("./data/abilities.json"),
     ]);
 
     const [pokemon, abilities] = await Promise.all([
