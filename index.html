@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pokemon Learner</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="./assets/favicon.ico" rel="icon" type="image/x-icon" />
+  </head>
+
+  <body>
+    <!-- Background -->
+    <div class="app-bg"></div>
+
+    <!-- App Container -->
+    <main class="app">
+      <!-- MENU SCREEN -->
+      <section id="menu-screen" class="screen active">
+        <div class="menu-card">
+          <!-- Title -->
+          <div class="title-container">
+            <h1 class="menu-title">Pokemon Learner</h1>
+            <p class="menu-subtitle">Improve your knowledge</p>
+          </div>
+          <!-- Image -->
+          <div class="menu-image">
+            <img src="images/classroom.jpg" alt="Pokemon classroom" />
+          </div>
+
+          <!-- Actions -->
+          <div class="menu-actions">
+            <!-- <button id="options-btn" class="btn secondary">Options</button> -->
+
+            <button id="start-btn" class="btn primary">New Game</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="options-screen" class="screen">
+        <div class="menu-card">
+          <h1 class="menu-title">Pokemon Learner</h1>
+          <p class="menu-subtitle">Improve your knowledge</p>
+
+          <!-- GAME MODE -->
+          <div class="options-group">
+            <p class="options-label">Pick a game mode:</p>
+
+            <div class="options-row" id="mode-options">
+              <!-- buttons -->
+              <button class="icon-btn active" data-mode="ability_mc">
+                <img src="assets/icons/ability-capsule.png" />
+              </button>
+
+              <button class="icon-btn" data-mode="description_mc">
+                <img src="assets/icons/ability-urge.png" />
+              </button>
+
+              <button class="icon-btn" data-mode="pokemon_abilities_mc">
+                <img src="assets/icons/abomasite.png" />
+              </button>
+
+              <button class="icon-btn" data-mode="typing_mc">
+                <img src="assets/icons/absolite.png" />
+              </button>
+
+              <button class="icon-btn" data-mode="weakness_mc">
+                <img src="assets/icons/absorb-bulb.png" />
+              </button>
+
+              <button class="icon-btn" disabled data-mode="description_input">
+                <img src="assets/icons/adamant-orb.png" />
+              </button>
+
+              <button class="icon-btn" data-mode="pokemon_abilities_input">
+                <img src="assets/icons/aerodactylite.png" />
+              </button>
+            </div>
+
+            <div class="options-description" id="mode-description">
+              <strong>Ability Mastery</strong><br />
+              Choose the correct effect from multiple options and test how well
+              you understand Pokémon mechanics.<br /><br />
+              Perfect for learning how abilities influence battles and strategy.
+            </div>
+          </div>
+
+          <!-- DIFFICULTY -->
+          <div class="options-group">
+            <p class="options-label">Pick difficulty (amount of questions):</p>
+
+            <div class="options-row" id="difficulty-options">
+              <button class="icon-btn" data-value="1">
+                <img src="assets/icons/poke-ball.png" />
+                1
+              </button>
+              <button class="icon-btn" data-value="5">
+                <img src="assets/icons/great-ball.png" />
+                5
+              </button>
+              <button class="icon-btn" data-value="10">
+                <img src="assets/icons/dusk-ball.png" />
+                10
+              </button>
+              <button class="icon-btn active" data-value="25">
+                <img src="assets/icons/quick-ball.png" />
+                25
+              </button>
+              <button class="icon-btn" data-value="50">
+                <img src="assets/icons/net-ball.png" />
+                50
+              </button>
+              <button class="icon-btn" data-value="75">
+                <img src="assets/icons/ultra-ball.png" />
+                75
+              </button>
+              <button class="icon-btn" data-value="100">
+                <img src="assets/icons/master-ball.png" />
+                100
+              </button>
+            </div>
+          </div>
+
+          <!-- GENERATIONS -->
+          <div class="options-group">
+            <p class="options-label">Pick one or more generations:</p>
+
+            <div class="options-row wrap" id="gen-options">
+              <button class="gen-btn">Kanto</button>
+              <button class="gen-btn">Johto</button>
+              <button class="gen-btn active">Hoenn</button>
+              <button class="gen-btn">Sinnoh</button>
+              <button class="gen-btn">Unova</button>
+              <button class="gen-btn">Kalos</button>
+              <button class="gen-btn">Alola</button>
+              <button class="gen-btn">Galar</button>
+              <button class="gen-btn">Paldea</button>
+            </div>
+          </div>
+
+          <!-- ACTIONS -->
+          <div class="menu-actions">
+            <button id="back-btn" class="btn secondary">Back</button>
+            <button id="start-game-btn" class="btn primary">Start</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIZ SCREEN -->
+      <section id="quiz-screen" class="screen">
+        <div class="menu-card quiz-card">
+          <!-- Header -->
+          <h1 class="menu-title">Pokemon Learner</h1>
+          <p class="menu-subtitle">Improve your knowledge</p>
+
+          <!-- Meta -->
+          <div id="quiz-meta" class="quiz-meta"></div>
+
+          <div class="quiz-panel">
+            <!-- Question -->
+            <div class="quiz-panel">
+              <!-- Question -->
+              <div class="quiz-question-box">
+                <h2 id="quiz-question"></h2>
+              </div>
+
+              <!-- Image (optional per mode) -->
+              <div id="pokemon-display">
+                <img id="quiz-pokemon-image" />
+              </div>
+
+              <!-- MULTIPLE CHOICE -->
+              <div id="quiz-answers" class="quiz-answers-grid"></div>
+            </div>
+          </div>
+
+          <!-- INPUT MODE -->
+          <div id="quiz-input-container" class="quiz-input-container">
+            <input id="quiz-input" placeholder="Type your answer..." />
+            <button id="submit-btn">Submit</button>
+          </div>
+
+          <!-- RESULT -->
+          <div id="quiz-result" class="quiz-result">
+            <div class="result-box correct">
+              <h3 class="result-title">Correct!</h3>
+              <p>
+                <strong>Your answer:</strong> Ability Name – Ability Effect
+                Description
+              </p>
+              <p>
+                <strong>Correct answer:</strong> Ability Name – Ability Effect
+                Description
+              </p>
+            </div>
+          </div>
+
+          <!-- ACTION -->
+          <button id="next-btn">Next</button>
+        </div>
+      </section>
+
+      <!-- FUTURE SCREENS -->
+      <section id="result-screen" class="screen"></section>
+    </main>
+
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>
