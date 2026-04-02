@@ -181,6 +181,11 @@ section {
   pointer-events: none;
 }
 
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .quiz-answers-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
